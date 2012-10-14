@@ -3,6 +3,8 @@ Twitter Bootstrap Wizard
 
 This twitter bootstrap plugin builds a wizard out of a formatter tabbable structure. It allows to build a wizard functionality using buttons to go through the different wizard steps and using events allows to hook into each step individually.
 
+<a href="http://vadimg.com/twitter-bootstrap-wizard/" target="_blank">Website & Demo</a>
+
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
