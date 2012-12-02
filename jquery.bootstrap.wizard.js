@@ -142,8 +142,8 @@ var bootstrapWizardCreate = function(element, options) {
 	$navigation = element.find('ul:first', element);
 	$activeTab = $navigation.find('li.active', element);
 
-	if(!$navigation.hasClass($settings.class)) {
-		$navigation.addClass($settings.class);
+	if(!$navigation.hasClass($settings.tabClass)) {
+		$navigation.addClass($settings.tabClass);
 	}
 
 	// Load onShow
@@ -183,7 +183,7 @@ var bootstrapWizardCreate = function(element, options) {
 
 	});
 };
-$.fn.bootstrapWizard = function(options) {	
+$.fn.bootstrapWizard = function(options) {
 	return this.each(function(index){
 		var element = $(this);
 		// Return early if this element already has a plugin instance
@@ -197,7 +197,7 @@ $.fn.bootstrapWizard = function(options) {
 
 // expose options
 $.fn.bootstrapWizard.defaults = {
-	'class':            'nav nav-pills',
+	'tabClass':            'nav nav-pills',
 	'nextSelector':     '.wizard li.next',
 	'previousSelector': '.wizard li.previous',
 	'firstSelector':    '.wizard li.first',
