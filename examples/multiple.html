@@ -215,7 +215,7 @@
 	<script src="../prettify.js"></script>
 	<script>
 	$(document).ready(function() {
-	  	$('#rootwizard').bootstrapWizard({'class': 'nav', 'debug': false, onShow: function(tab, navigation, index) {
+	  	$('#rootwizard').bootstrapWizard({'tabClass': 'nav', 'debug': false, onShow: function(tab, navigation, index) {
 				console.log('onShow');
 			}, onNext: function(tab, navigation, index) {
 				console.log('onNext');
@@ -234,7 +234,7 @@
 				$('#rootwizard').find('.bar').css({width:$percent+'%'});
 			}});
 			
-			$('#pills').bootstrapWizard({'class': 'nav nav-pills', 'debug': false, onShow: function(tab, navigation, index) {
+			$('#pills').bootstrapWizard({'tabClass': 'nav nav-pills', 'debug': false, onShow: function(tab, navigation, index) {
 					console.log('onShow');
 				}, onNext: function(tab, navigation, index) {
 					console.log('onNext');
@@ -253,7 +253,7 @@
 					$('#pills').find('.bar').css({width:$percent+'%'});
 				}});
 				
-			$('#tabsleft').bootstrapWizard({'class': 'nav nav-tabs', 'debug': false, onShow: function(tab, navigation, index) {
+			$('#tabsleft').bootstrapWizard({'tabClass': 'nav nav-tabs', 'debug': false, onShow: function(tab, navigation, index) {
 						console.log('onShow');
 					}, onNext: function(tab, navigation, index) {
 						console.log('onNext');
@@ -283,7 +283,7 @@
 						
 					}});
 				
-				$('#inverse').bootstrapWizard({'class': 'nav', 'debug': false, onShow: function(tab, navigation, index) {
+				$('#inverse').bootstrapWizard({'tabClass': 'nav', 'debug': false, onShow: function(tab, navigation, index) {
 						console.log('onShow');
 					}, onNext: function(tab, navigation, index) {
 						console.log('onNext');
