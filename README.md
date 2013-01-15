@@ -5,6 +5,33 @@ This Twitter Bootstrap plugin builds a wizard using a formatted tabbable structu
 
 <a href="http://vadimg.com/twitter-bootstrap-wizard/" target="_blank">Website & Demo</a>
 
+Code Examples
+-------------
+
+```javascript
+//basic wizard
+$(document).ready(function() {
+	$('#rootwizard').bootstrapWizard();
+});
+```
+
+```javascript
+//wizard with options and events
+$(document).ready(function() {
+	$('#rootwizard').bootstrapWizard({
+		tabClass: 'nav nav-pills',
+		onNext: function(tab, navigation, index) {
+			alert('next');
+  		}
+  });
+});
+```
+
+```javascript
+//calling a method
+$('#rootwizard').bootstrapWizard('show',3);
+```
+
 Options
 -------
 <table class="table table-bordered table-striped">
