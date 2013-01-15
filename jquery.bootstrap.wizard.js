@@ -27,7 +27,7 @@ var bootstrapWizardCreate = function(element, options) {
 			$activeTab = $navigation.find('li:first');
 		}
 
-		// See if we currently in the first then disable the previous and last buttons
+		// See if we're currently in the first/last then disable the previous and last buttons
 		if(obj.firstIndex() >= obj.currentIndex()) {
 			$('li.previous', element).addClass('disabled');
 		} else{
@@ -114,8 +114,8 @@ var bootstrapWizardCreate = function(element, options) {
 	this.lastIndex = function() {
 		return obj.navigationLength();
 	};
-	this.getIndex = function(elem) {
-		return $navigation.find('li').index(elem);
+	this.getIndex = function(e) {
+		return $navigation.find('li').index(e);
 	};
 	this.nextIndex = function() {
 		return $navigation.find('li').index($activeTab) + 1;
@@ -138,6 +138,9 @@ var bootstrapWizardCreate = function(element, options) {
 		}
 		return $navigation.find('li:eq('+parseInt(obj.currentIndex()-1)+')');
 	};
+	this.show = function(index) {
+		return element.find('li:eq(' + index + ') a').tab('show');
+	};
 
 	$navigation = element.find('ul:first', element);
 	$activeTab = $navigation.find('li.active', element);
@@ -146,7 +149,7 @@ var bootstrapWizardCreate = function(element, options) {
 		$navigation.addClass($settings.tabClass);
 	}
 
-	// Load onShow
+	// Load onInit
 	if($settings.onInit && typeof $settings.onInit === 'function'){
 		$settings.onInit($activeTab, $navigation, 0);
 	}
@@ -184,6 +187,11 @@ var bootstrapWizardCreate = function(element, options) {
 	});
 };
 $.fn.bootstrapWizard = function(options) {
+	//expose methods
+	if (typeof options == 'string') {
+		var args = Array.prototype.slice.call(arguments, 1).toString();
+		return this.data('bootstrapWizard')[options](args);
+	}
 	return this.each(function(index){
 		var element = $(this);
 		// Return early if this element already has a plugin instance
@@ -197,7 +205,7 @@ $.fn.bootstrapWizard = function(options) {
 
 // expose options
 $.fn.bootstrapWizard.defaults = {
-	'tabClass':            'nav nav-pills',
+	'tabClass':         'nav nav-pills',
 	'nextSelector':     '.wizard li.next',
 	'previousSelector': '.wizard li.previous',
 	'firstSelector':    '.wizard li.first',
