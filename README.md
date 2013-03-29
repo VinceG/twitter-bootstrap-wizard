@@ -5,6 +5,8 @@ This Twitter Bootstrap plugin builds a wizard using a formatted tabbable structu
 
 <a href="http://vadimg.com/twitter-bootstrap-wizard/" target="_blank">Website & Demo</a>
 
+<a href='https://twitter.com/gabrielva' target='_blank'>Follow @gabrielva</a>
+
 Code Examples
 -------------
 
