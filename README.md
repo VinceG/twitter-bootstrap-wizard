@@ -165,4 +165,8 @@ Methods
 	</tbody>	
 </table>
 
-<p>&copy; <a href='http://vadimg.com' target="_blank">Vadim Vincent Gabriel</a> 2012</p>
+<p>&copy; <a href='http://vadimg.com' target="_blank">Vadim Vincent Gabriel</a> <a href='https://twitter.com/gabrielva' target='_blank'>Follow @gabrielva</a> 2012</p>
+
+
+
+
