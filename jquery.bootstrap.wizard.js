@@ -217,7 +217,7 @@ $.fn.bootstrapWizard = function(options) {
 	//expose methods
 	if (typeof options == 'string') {
 		var args = Array.prototype.slice.call(arguments, 1)
-		if(args.length <= 1) {
+		if(args.length === 1) {
 			args.toString();
 		}
 		return this.data('bootstrapWizard')[options](args);
