@@ -164,6 +164,31 @@ Methods
 			<td></td>
 			<td>Returns the number of tabs</td>
 		</tr>
+		<tr>
+			<td>enable</td>
+			<td>zero based index</td>
+			<td>Enables a tab, allows a user to click it (removes .disabled if the item has that class)</td>
+		</tr>
+		<tr>
+			<td>disable</td>
+			<td>zero based index</td>
+			<td>Disables a tab, disallows a user to click it (adds .disabled to the li element)</td>
+		</tr>
+		<tr>
+			<td>display</td>
+			<td>zero based index</td>
+			<td>Displays the li element if it was previously hidden</td>
+		</tr>
+		<tr>
+			<td>hide</td>
+			<td>zero based index</td>
+			<td>Hides the li element (will not remove it from the DOM)</td>
+		</tr>
+		<tr>
+			<td>remove</td>
+			<td>zero based index, optinal bool remove tab-pane element or not false by default</td>
+			<td>Removes the li element from the DOM if second argument is true will also remove the tab-pane element</td>
+		</tr>
 	</tbody>	
 </table>
 

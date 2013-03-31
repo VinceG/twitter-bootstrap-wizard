@@ -141,6 +141,32 @@ var bootstrapWizardCreate = function(element, options) {
 	this.show = function(index) {
 		return element.find('li:eq(' + index + ') a').tab('show');
 	};
+	this.disable = function(index) {
+		$navigation.find('li:eq('+index+')').addClass('disabled');
+	};
+	this.enable = function(index) {
+		$navigation.find('li:eq('+index+')').removeClass('disabled');
+	};
+	this.hide = function(index) {
+		$navigation.find('li:eq('+index+')').hide();
+	};
+	this.display = function(index) {
+		$navigation.find('li:eq('+index+')').show();
+	};
+	this.remove = function(args) {
+		var $index = args[0];
+		var $removeTabPane = typeof args[1] != 'undefined' ? args[1] : false;
+		var $item = $navigation.find('li:eq('+$index+')');
+
+		// Remove the tab pane first if needed
+		if($removeTabPane) {
+			var $href = $item.find('a').attr('href');
+			$($href).remove();
+		}
+
+		// Remove menu item
+		$item.remove();
+	};
 
 	$navigation = element.find('ul:first', element);
 	$activeTab = $navigation.find('li.active', element);
@@ -185,13 +211,15 @@ var bootstrapWizardCreate = function(element, options) {
 
 		$activeTab = $element; // activated tab
 		obj.fixNavigationButtons();
-
 	});
 };
 $.fn.bootstrapWizard = function(options) {
 	//expose methods
 	if (typeof options == 'string') {
-		var args = Array.prototype.slice.call(arguments, 1).toString();
+		var args = Array.prototype.slice.call(arguments, 1)
+		if(args.length <= 1) {
+			args.toString();
+		}
 		return this.data('bootstrapWizard')[options](args);
 	}
 	return this.each(function(index){
