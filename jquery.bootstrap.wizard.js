@@ -168,7 +168,7 @@ var bootstrapWizardCreate = function(element, options) {
 		$item.remove();
 	};
 
-	$navigation = element.find('ul:first', element);
+	$navigation = element.find('> ul:first', element);
 	$activeTab = $navigation.find('li.active', element);
 
 	if(!$navigation.hasClass($settings.tabClass)) {
@@ -194,7 +194,7 @@ var bootstrapWizardCreate = function(element, options) {
 	// Work the next/previous buttons
 	obj.fixNavigationButtons();
 
-	$('a[data-toggle="tab"]', element).on('click', function (e) {
+	$('a[data-toggle="tab"]', $navigation).on('click', function (e) {
 		// Get the index of the clicked tab
 		var clickedIndex = $navigation.find('li').index($(e.currentTarget).parent('li'));
 		if($settings.onTabClick && typeof $settings.onTabClick === 'function' && $settings.onTabClick($activeTab, $navigation, obj.currentIndex(), clickedIndex)===false){
@@ -202,7 +202,7 @@ var bootstrapWizardCreate = function(element, options) {
 		}
 	});
 
-	$('a[data-toggle="tab"]', element).on('show', function (e) {
+	$('a[data-toggle="tab"]', $navigation).on('show', function (e) {
 		$element = $(e.target).parent();
 		// If it's disabled then do not change
 		if($element.hasClass('disabled')) {
