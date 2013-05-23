@@ -168,7 +168,7 @@ var bootstrapWizardCreate = function(element, options) {
 		$item.remove();
 	};
 
-	$navigation = element.find('> ul:first', element);
+	$navigation = element.find('ul:first', element);
 	$activeTab = $navigation.find('li.active', element);
 
 	if(!$navigation.hasClass($settings.tabClass)) {
