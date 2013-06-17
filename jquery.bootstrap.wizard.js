@@ -28,17 +28,8 @@ var bootstrapWizardCreate = function(element, options) {
 		}
 
 		// See if we're currently in the first/last then disable the previous and last buttons
-		if(obj.firstIndex() >= obj.currentIndex()) {
-			$('li.previous', element).addClass('disabled');
-		} else{
-			$('li.previous', element).removeClass('disabled');
-		}
-
-		if(obj.currentIndex() >= obj.navigationLength()) {
-			$('li.next', element).addClass('disabled');
-		} else {
-			$('li.next', element).removeClass('disabled');
-		}
+		$($settings.previousSelector, element).toggleClass('disabled', (obj.firstIndex() >= obj.currentIndex()));
+		$($settings.nextSelector, element).toggleClass('disabled', (obj.currentIndex() >= obj.navigationLength()));
 
 		if($settings.onTabShow && typeof $settings.onTabShow === 'function' && $settings.onTabShow($activeTab, $navigation, obj.currentIndex())===false){
 			return false;
@@ -235,19 +226,19 @@ $.fn.bootstrapWizard = function(options) {
 
 // expose options
 $.fn.bootstrapWizard.defaults = {
-	'tabClass':         'nav nav-pills',
-	'nextSelector':     '.wizard li.next',
-	'previousSelector': '.wizard li.previous',
-	'firstSelector':    '.wizard li.first',
-	'lastSelector':     '.wizard li.last',
-	'onShow':           null,
-	'onInit':           null,
-	'onNext':           null,
-	'onPrevious':       null,
-	'onLast':           null,
-	'onFirst':          null,
-	'onTabClick':       null,
-	'onTabShow':        null
+	tabClass:         'nav nav-pills',
+	nextSelector:     '.wizard li.next',
+	previousSelector: '.wizard li.previous',
+	firstSelector:    '.wizard li.first',
+	lastSelector:     '.wizard li.last',
+	onShow:           null,
+	onInit:           null,
+	onNext:           null,
+	onPrevious:       null,
+	onLast:           null,
+	onFirst:          null,
+	onTabClick:       null,
+	onTabShow:        null
 };
 
 })(jQuery);
