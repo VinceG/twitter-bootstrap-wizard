@@ -38,15 +38,16 @@
             };
 
             this.next = function (e) {
-                // Did we click the last button
+                // Get the next index here...
                 $index = obj.nextIndex();
+		// Get the parent class of the navigation element and store it here.
             	var navigationElementParent = $navigation.find('li:eq(' + $index + ') a').parent();
+		// Check to see if the next step is disabled, if so, skip to the next one.
             	if (navigationElementParent.hasClass('disabled') && $settings.skipDisabled == true) $index++;
                 // If we clicked the last then dont activate this
                 if (element.hasClass('last')) {
                     return false;
                 }
-
                 if ($settings.onNext && typeof $settings.onNext === 'function') {
                 	if ($settings.onNext($activeTab, $navigation, $index) === false) return false;
                	}
@@ -56,8 +57,11 @@
             };
 
             this.previous = function (e) {
-				$index = obj.previousIndex();
+		// Get previous index here...
+		$index = obj.previousIndex();
+		// Get the parent class of the navigation element and store it here.
             	var navigationElementParent = $navigation.find('li:eq(' + $index + ') a').parent();
+		// Check to see if the previous step is disabled, if so, skip to the one before that.
             	if (navigationElementParent.hasClass('disabled') && $settings.skipDisabled == true) $index--;
                 // If we clicked the first then dont activate this
                 if (element.hasClass('first')) {
