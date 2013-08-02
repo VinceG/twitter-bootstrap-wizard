@@ -199,9 +199,15 @@ var bootstrapWizardCreate = function(element, options) {
 
 	$('a[data-toggle="tab"]', $navigation).on('shown', function (e) {  // use shown instead of show to help prevent double firing
 		$element = $(e.target).parent();
+		var nextTab = $navigation.find('li').index($element);
+
 		// If it's disabled then do not change
 		if($element.hasClass('disabled')) {
 			return false;
+		}
+
+		if($settings.onTabChange && typeof $settings.onTabChange === 'function' && $settings.onTabChange($activeTab, $navigation, obj.currentIndex(), nextTab)===false){
+				return false;
 		}
 
 		$activeTab = $element; // activated tab
@@ -241,6 +247,7 @@ $.fn.bootstrapWizard.defaults = {
 	onPrevious:       null,
 	onLast:           null,
 	onFirst:          null,
+	onTabChange:      null, 
 	onTabClick:       null,
 	onTabShow:        null
 };

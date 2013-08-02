@@ -108,8 +108,12 @@ Events
 			<td>Fired when last button is clicked (return false to disable moving to the last step)</td>
 		</tr>
 		<tr>
+			<td>onTabChange</td>
+			<td>Fired when a tab is changed (return false to disable moving to that tab and showing its contents)</td>
+		</tr>
+		<tr>
 			<td>onTabClick</td>
-			<td>Fired when a tab is clicked (return false to disable moving to that tab and showing it's contents)</td>
+			<td>Fired when a tab is clicked (return false to disable moving to that tab and showing its contents)</td>
 		</tr>
 		<tr>
 			<td>onTabShow</td>
