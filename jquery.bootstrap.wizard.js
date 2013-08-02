@@ -17,6 +17,11 @@ var bootstrapWizardCreate = function(element, options) {
 	var $settings = $.extend({}, $.fn.bootstrapWizard.defaults, options);
 	var $activeTab = null;
 	var $navigation = null;
+	
+	this.rebindClick = function(selector, fn)
+	{
+		selector.unbind('click', fn).one('click', fn);
+	}
 
 	this.fixNavigationButtons = function() {
 		// Get the current active tab
@@ -31,15 +36,10 @@ var bootstrapWizardCreate = function(element, options) {
 		$($settings.nextSelector, element).toggleClass('disabled', (obj.currentIndex() >= obj.navigationLength()));
 
 		// We are unbinding and rebinding to ensure single firing and no double-click errors
-		$($settings.nextSelector, element).unbind('click', obj.next);
-		$($settings.previousSelector, element).unbind('click', obj.previous);
-		$($settings.lastSelector, element).unbind('click', obj.last);
-		$($settings.firstSelector, element).unbind('click', obj.first);
-		// Next/Previous events
-		$($settings.nextSelector, element).one('click', obj.next);
-		$($settings.previousSelector, element).one('click', obj.previous);
-		$($settings.lastSelector, element).one('click', obj.last);
-		$($settings.firstSelector, element).one('click', obj.first);
+		obj.rebindClick($($settings.nextSelector, element), obj.next);
+		obj.rebindClick($($settings.previousSelector, element), obj.previous);
+		obj.rebindClick($($settings.lastSelector, element), obj.last);
+		obj.rebindClick($($settings.firstSelector, element), obj.first);
 
 		if($settings.onTabShow && typeof $settings.onTabShow === 'function' && $settings.onTabShow($activeTab, $navigation, obj.currentIndex())===false){
 			return false;
