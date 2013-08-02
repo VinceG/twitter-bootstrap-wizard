@@ -14,7 +14,6 @@ var bootstrapWizardCreate = function(element, options) {
 	var obj = this;
 
 	// Merge options with defaults
-	//var $settings = $.extend($.fn.bootstrapWizard.defaults, options || {});
 	var $settings = $.extend({}, $.fn.bootstrapWizard.defaults, options);
 	var $activeTab = null;
 	var $navigation = null;
@@ -30,6 +29,17 @@ var bootstrapWizardCreate = function(element, options) {
 		// See if we're currently in the first/last then disable the previous and last buttons
 		$($settings.previousSelector, element).toggleClass('disabled', (obj.firstIndex() >= obj.currentIndex()));
 		$($settings.nextSelector, element).toggleClass('disabled', (obj.currentIndex() >= obj.navigationLength()));
+
+		// We are unbinding and rebinding to ensure single firing and no double-click errors
+		$($settings.nextSelector, element).unbind('click', obj.next);
+		$($settings.previousSelector, element).unbind('click', obj.previous);
+		$($settings.lastSelector, element).unbind('click', obj.last);
+		$($settings.firstSelector, element).unbind('click', obj.first);
+		// Next/Previous events
+		$($settings.nextSelector, element).one('click', obj.next);
+		$($settings.previousSelector, element).one('click', obj.previous);
+		$($settings.lastSelector, element).one('click', obj.last);
+		$($settings.firstSelector, element).one('click', obj.first);
 
 		if($settings.onTabShow && typeof $settings.onTabShow === 'function' && $settings.onTabShow($activeTab, $navigation, obj.currentIndex())===false){
 			return false;
@@ -171,12 +181,6 @@ var bootstrapWizardCreate = function(element, options) {
 		$settings.onInit($activeTab, $navigation, 0);
 	}
 
-	// Next/Previous events
-	$($settings.nextSelector, element).bind('click', obj.next);
-	$($settings.previousSelector, element).bind('click', obj.previous);
-	$($settings.lastSelector, element).bind('click', obj.last);
-	$($settings.firstSelector, element).bind('click', obj.first);
-
 	// Load onShow
 	if($settings.onShow && typeof $settings.onShow === 'function'){
 		$settings.onShow($activeTab, $navigation, obj.nextIndex());
@@ -193,7 +197,7 @@ var bootstrapWizardCreate = function(element, options) {
 		}
 	});
 
-	$('a[data-toggle="tab"]', $navigation).on('show', function (e) {
+	$('a[data-toggle="tab"]', $navigation).on('shown', function (e) {  // use shown instead of show to help prevent double firing
 		$element = $(e.target).parent();
 		// If it's disabled then do not change
 		if($element.hasClass('disabled')) {
