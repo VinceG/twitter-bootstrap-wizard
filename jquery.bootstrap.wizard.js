@@ -20,7 +20,7 @@ var bootstrapWizardCreate = function(element, options) {
 	
 	this.rebindClick = function(selector, fn)
 	{
-		selector.unbind('click', fn).one('click', fn);
+		selector.unbind('click', fn).bind('click', fn);
 	}
 
 	this.fixNavigationButtons = function() {
