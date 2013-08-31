@@ -49,10 +49,13 @@ var bootstrapWizardCreate = function(element, options) {
 	this.next = function(e) {
 		// Get the next index here
 		$index = obj.nextIndex();
-		// Get the parent class of the navigation element
-		var navigationElementParent = $navigation.find('li:eq(' + $index + ') a').parent();
-		// Check to see if the next step is disabled, if so, skip it
-		if (navigationElementParent.hasClass('disabled') && $settings.skipDisabled == true) $index++;
+
+		if ($settings.skipDisabled == true) {
+			// Skip disabled steps
+			while ($navigation.find('li:eq(' + $index + ') a').parent().hasClass('disabled')) {
+				$index++;
+			}
+		}
 
 		// If we clicked the last then dont activate this
 		if(element.hasClass('last')) {
@@ -73,10 +76,13 @@ var bootstrapWizardCreate = function(element, options) {
 	this.previous = function(e) {
 		// Get previous index here
 		$index = obj.previousIndex();
-		// Get the parent class of the navigation element
-		var navigationElementParent = $navigation.find('li:eq(' + $index + ') a').parent();
-		// Check to see if the previous step is disabled, if so, skip to the one before
-		if (navigationElementParent.hasClass('disabled') && $settings.skipDisabled == true) $index--;
+
+		if ($settings.skipDisabled == true) {
+			// Skip disabled steps
+			while ($navigation.find('li:eq(' + $index + ') a').parent().hasClass('disabled')) {
+				$index--;
+			}
+		}
 
 		// If we clicked the first then dont activate this
 		if(element.hasClass('first')) {
