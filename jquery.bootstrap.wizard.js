@@ -197,7 +197,10 @@ var bootstrapWizardCreate = function(element, options) {
 		}
 	});
 
-	$('a[data-toggle="tab"]', $navigation).on('shown', function (e) {  // use shown instead of show to help prevent double firing
+	// use shown instead of show to help prevent double firing
+	// bind to both shown and shown.bs.tab to work with both Bootstrap 2.3.2 and Bootstrap 3.0.0.
+	// since only one or the other is defined, no conflicts should occur.
+	$('a[data-toggle="tab"]', $navigation).on('shown shown.bs.tab', function (e) {  
 		$element = $(e.target).parent();
 		var nextTab = $navigation.find('li').index($element);
 
