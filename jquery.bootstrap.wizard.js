@@ -196,8 +196,8 @@ var bootstrapWizardCreate = function(element, options) {
 			return false;
 		}
 	});
-	
-	var shownEvent = function (e) {  // use shown instead of show to help prevent double firing
+
+	$('a[data-toggle="tab"]', $navigation).on('shown', function (e) {  // use shown instead of show to help prevent double firing
 		$element = $(e.target).parent();
 		var nextTab = $navigation.find('li').index($element);
 
@@ -212,11 +212,7 @@ var bootstrapWizardCreate = function(element, options) {
 
 		$activeTab = $element; // activated tab
 		obj.fixNavigationButtons();
-	};
-
-	// bind to events for 2.3.2 and 3.0.0.  Only one or the other should exist so there
-	// should be no conlicts
-	$('a[data-toggle="tab"]', $navigation).on('shown', shownEvent).on('shown.bs.tab', shownEvent);
+	});
 };
 $.fn.bootstrapWizard = function(options) {
 	//expose methods
