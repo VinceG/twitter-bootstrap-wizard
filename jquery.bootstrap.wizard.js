@@ -17,8 +17,6 @@ var bootstrapWizardCreate = function(element, options) {
 	var $settings = $.extend({}, $.fn.bootstrapWizard.defaults, options);
 	var $activeTab = null;
 	var $navigation = null;
-	var $supportsHasSelector = false;
-	var $baseTabSelector = 'li';
 	
 	this.rebindClick = function(selector, fn)
 	{
@@ -30,7 +28,7 @@ var bootstrapWizardCreate = function(element, options) {
 		if(!$activeTab.length) {
 			// Select first one
 			$navigation.find('a:first').tab('show');
-			$activeTab = $navigation.find($baseTabSelector + ':first');
+			$activeTab = $navigation.find('li:first');
 		}
 
 		// See if we're currently in the first/last then disable the previous and last buttons
@@ -63,7 +61,7 @@ var bootstrapWizardCreate = function(element, options) {
 		$index = obj.nextIndex();
 		if($index > obj.navigationLength()) {
 		} else {
-			$navigation.find($baseTabSelector + ':eq('+$index+') a').tab('show');
+			$navigation.find('li:eq('+$index+') a').tab('show');
 		}
 	};
 
@@ -81,7 +79,7 @@ var bootstrapWizardCreate = function(element, options) {
 		$index = obj.previousIndex();
 		if($index < 0) {
 		} else {
-			$navigation.find($baseTabSelector + ':eq('+$index+') a').tab('show');
+			$navigation.find('li:eq('+$index+') a').tab('show');
 		}
 	};
 
@@ -94,7 +92,7 @@ var bootstrapWizardCreate = function(element, options) {
 		if(element.hasClass('disabled')) {
 			return false;
 		}
-		$navigation.find($baseTabSelector + ':eq(0) a').tab('show');
+		$navigation.find('li:eq(0) a').tab('show');
 
 	};
 	this.last = function(e) {
@@ -106,10 +104,10 @@ var bootstrapWizardCreate = function(element, options) {
 		if(element.hasClass('disabled')) {
 			return false;
 		}
-		$navigation.find($baseTabSelector + ':eq('+obj.navigationLength()+') a').tab('show');
+		$navigation.find('li:eq('+obj.navigationLength()+') a').tab('show');
 	};
 	this.currentIndex = function() {
-		return $navigation.find($baseTabSelector).index($activeTab);
+		return $navigation.find('li').index($activeTab);
 	};
 	this.firstIndex = function() {
 		return 0;
@@ -118,48 +116,48 @@ var bootstrapWizardCreate = function(element, options) {
 		return obj.navigationLength();
 	};
 	this.getIndex = function(e) {
-		return $navigation.find($baseTabSelector).index(e);
+		return $navigation.find('li').index(e);
 	};
 	this.nextIndex = function() {
-		return $navigation.find($baseTabSelector).index($activeTab) + 1;
+		return $navigation.find('li').index($activeTab) + 1;
 	};
 	this.previousIndex = function() {
-		return $navigation.find($baseTabSelector).index($activeTab) - 1;
+		return $navigation.find('li').index($activeTab) - 1;
 	};
 	this.navigationLength = function() {
-		return $navigation.find($baseTabSelector).length - 1;
+		return $navigation.find('li').length - 1;
 	};
 	this.activeTab = function() {
 		return $activeTab;
 	};
 	this.nextTab = function() {
-		return $navigation.find($baseTabSelector + ':eq('+(obj.currentIndex()+1)+')').length ? $navigation.find($baseTabSelector + ':eq('+(obj.currentIndex()+1)+')') : null;
+		return $navigation.find('li:eq('+(obj.currentIndex()+1)+')').length ? $navigation.find('li:eq('+(obj.currentIndex()+1)+')') : null;
 	};
 	this.previousTab = function() {
 		if(obj.currentIndex() <= 0) {
 			return null;
 		}
-		return $navigation.find($baseTabSelector + ':eq('+parseInt(obj.currentIndex()-1)+')');
+		return $navigation.find('li:eq('+parseInt(obj.currentIndex()-1)+')');
 	};
 	this.show = function(index) {
-		return element.find($baseTabSelector + ':eq(' + index + ') a').tab('show');
+		return element.find('li:eq(' + index + ') a').tab('show');
 	};
 	this.disable = function(index) {
-		$navigation.find($baseTabSelector + ':eq('+index+')').addClass('disabled');
+		$navigation.find('li:eq('+index+')').addClass('disabled');
 	};
 	this.enable = function(index) {
-		$navigation.find($baseTabSelector + ':eq('+index+')').removeClass('disabled');
+		$navigation.find('li:eq('+index+')').removeClass('disabled');
 	};
 	this.hide = function(index) {
-		$navigation.find($baseTabSelector + ':eq('+index+')').hide();
+		$navigation.find('li:eq('+index+')').hide();
 	};
 	this.display = function(index) {
-		$navigation.find($baseTabSelector + ':eq('+index+')').show();
+		$navigation.find('li:eq('+index+')').show();
 	};
 	this.remove = function(args) {
 		var $index = args[0];
 		var $removeTabPane = typeof args[1] != 'undefined' ? args[1] : false;
-		var $item = $navigation.find($baseTabSelector + ':eq('+$index+')');
+		var $item = $navigation.find('li:eq('+$index+')');
 
 		// Remove the tab pane first if needed
 		if($removeTabPane) {
@@ -172,13 +170,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	$navigation = element.find('ul:first', element);
-	
-	// hacky way to determine support for :has selector.
-	$supportsHasSelector = element.slice;
-	
-	$baseTabSelector = ($supportsHasSelector) ? 'li:has(a[data-toggle="tab"])' : 'li';
-	
-	$activeTab = $navigation.find($baseTabSelector + '.active', element);
+	$activeTab = $navigation.find('li.active', element);
 
 	if(!$navigation.hasClass($settings.tabClass)) {
 		$navigation.addClass($settings.tabClass);
@@ -199,7 +191,7 @@ var bootstrapWizardCreate = function(element, options) {
 
 	$('a[data-toggle="tab"]', $navigation).on('click', function (e) {
 		// Get the index of the clicked tab
-		var clickedIndex = $navigation.find($baseTabSelector).index($(e.currentTarget).parent($baseTabSelector));
+		var clickedIndex = $navigation.find('li').index($(e.currentTarget).parent('li'));
 		if($settings.onTabClick && typeof $settings.onTabClick === 'function' && $settings.onTabClick($activeTab, $navigation, obj.currentIndex(), clickedIndex)===false){
 			return false;
 		}
@@ -210,7 +202,7 @@ var bootstrapWizardCreate = function(element, options) {
 	// since only one or the other is defined, no conflicts should occur.
 	$('a[data-toggle="tab"]', $navigation).on('shown shown.bs.tab', function (e) {  
 		$element = $(e.target).parent();
-		var nextTab = $navigation.find($baseTabSelector).index($element);
+		var nextTab = $navigation.find('li').index($element);
 
 		// If it's disabled then do not change
 		if($element.hasClass('disabled')) {
