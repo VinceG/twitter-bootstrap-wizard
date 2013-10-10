@@ -7,6 +7,12 @@ This Twitter Bootstrap plugin builds a wizard using a formatted tabbable structu
 
 <a href='https://twitter.com/gabrielva' target='_blank'>Follow @gabrielva</a>
 
+Requirements
+-------------
+
+* Requires jQuery v1.3.2 or later
+* Bootstrap 2.2.x, 2.3.x, 3.0
+
 Code Examples
 -------------
 
