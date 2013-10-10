@@ -51,6 +51,15 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.next = function(e) {
+		// Get the next index here
+		$index = obj.nextIndex();
+
+		if ($settings.skipDisabled == true) {
+			// Skip disabled steps
+			while ($navigation.find('li:eq(' + $index + ') a').parent().hasClass('disabled')) {
+				$index++;
+			}
+		}
 
 		// If we clicked the last then dont activate this
 		if(element.hasClass('last')) {
@@ -62,7 +71,6 @@ var bootstrapWizardCreate = function(element, options) {
 		}
 
 		// Did we click the last button
-		$index = obj.nextIndex();
 		if($index > obj.navigationLength()) {
 		} else {
 			$navigation.find(baseItemSelector + ':eq('+$index+') a').tab('show');
@@ -70,6 +78,15 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.previous = function(e) {
+		// Get previous index here
+		$index = obj.previousIndex();
+
+		if ($settings.skipDisabled == true) {
+			// Skip disabled steps
+			while ($navigation.find('li:eq(' + $index + ') a').parent().hasClass('disabled')) {
+				$index--;
+			}
+		}
 
 		// If we clicked the first then dont activate this
 		if(element.hasClass('first')) {
@@ -80,7 +97,6 @@ var bootstrapWizardCreate = function(element, options) {
 			return false;
 		}
 
-		$index = obj.previousIndex();
 		if($index < 0) {
 		} else {
 			$navigation.find(baseItemSelector + ':eq('+$index+') a').tab('show');
@@ -246,6 +262,7 @@ $.fn.bootstrapWizard.defaults = {
 	previousSelector: '.wizard li.previous',
 	firstSelector:    '.wizard li.first',
 	lastSelector:     '.wizard li.last',
+	skipDisabled:     true,
 	onShow:           null,
 	onInit:           null,
 	onNext:           null,
