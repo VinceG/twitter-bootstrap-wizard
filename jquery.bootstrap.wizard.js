@@ -236,6 +236,8 @@ var bootstrapWizardCreate = function(element, options) {
 
 	// attach to both shown and shown.bs.tab to support Bootstrap versions 2.3.2 and 3.0.0
 	$('a[data-toggle="tab"]', $navigation).on('shown shown.bs.tab', innerTabShown);
+
+	this.fixNavigationButtons();
 };
 $.fn.bootstrapWizard = function(options) {
 	//expose methods
