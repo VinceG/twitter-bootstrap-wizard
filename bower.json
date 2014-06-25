@@ -1,6 +1,6 @@
 {
   "name": "twitter-bootstrap-wizard",
-  "version": "1.2",
+  "version": "1.2.1",
   "ignore": [
     "**/.*",
     "examples",
