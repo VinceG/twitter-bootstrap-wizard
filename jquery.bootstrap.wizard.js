@@ -174,8 +174,15 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 	
 	var innerTabClick = function (e) {
+        $element = $(e.target).parent();
+        
+        // If it's disabled then do not change
+        if ($element.hasClass('disabled')) {
+            return false;
+        }
+        
 		// Get the index of the clicked tab
-		var clickedIndex = $navigation.find(baseItemSelector).index($(e.currentTarget).parent(baseItemSelector));
+		var clickedIndex = $navigation.find(baseItemSelector).index($element);
 		if($settings.onTabClick && typeof $settings.onTabClick === 'function' && $settings.onTabClick($activeTab, $navigation, obj.currentIndex(), clickedIndex)===false){
 			return false;
 		}
