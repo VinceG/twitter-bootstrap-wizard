@@ -144,7 +144,12 @@ var bootstrapWizardCreate = function(element, options) {
 		return $navigation.find(baseItemSelector + ':eq('+parseInt(obj.currentIndex()-1)+')');
 	};
 	this.show = function(index) {
-		return element.find(baseItemSelector + ':eq(' + index + ') a').tab('show');
+		if (isNaN(index)) {
+			return element.find(baseItemSelector + ' a[href=#' + index + ']').tab('show');
+		}
+		else {
+			return element.find(baseItemSelector + ':eq(' + index + ') a').tab('show');
+		}
 	};
 	this.disable = function(index) {
 		$navigation.find(baseItemSelector + ':eq('+index+')').addClass('disabled');
