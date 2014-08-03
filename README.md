@@ -171,7 +171,7 @@ Methods
 		<tr>
 			<td>back</td>
 			<td></td>
-			<td>Moves back in navigation history by jumping the former tab</td>
+			<td>Moves back in navigation history by jumping to the former tab</td>
 		</tr>
 		<tr>
 			<td>show</td>
