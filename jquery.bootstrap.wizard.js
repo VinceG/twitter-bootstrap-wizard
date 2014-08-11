@@ -69,8 +69,8 @@ var bootstrapWizardCreate = function(element, options) {
 	  // Did we click the last button
 		if($index > obj.navigationLength()) {
 		} else {
-		  $navigation.find(baseItemSelector + ':eq(' + $index + ') a').tab('show');
 		  historyStack.push(formerIndex);
+		  $navigation.find(baseItemSelector + ':eq(' + $index + ') a').tab('show');
 		}
 	};
 
@@ -89,8 +89,8 @@ var bootstrapWizardCreate = function(element, options) {
 
 		if($index < 0) {
 		} else {
-		  $navigation.find(baseItemSelector + ':eq(' + $index + ') a').tab('show');
 		  historyStack.push(formerIndex);
+		  $navigation.find(baseItemSelector + ':eq(' + $index + ') a').tab('show');
 		}
 	};
 
@@ -173,11 +173,11 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 	this.show = function(index) {
 	  var tabToShow = isNaN(index) ? 
-	    element.find(baseItemSelector + ' a[href=#' + index + ']') : 
+      element.find(baseItemSelector + ' a[href=#' + index + ']') : 
       element.find(baseItemSelector + ':eq(' + index + ') a');
 	  if (tabToShow.length > 0) {
+	    historyStack.push(obj.currentIndex());
 	    tabToShow.tab('show');
-	    historyStack.push(obj.getIndex(tabToShow.parent()));
 	  }
 	};
 	this.disable = function (index) {
@@ -307,7 +307,7 @@ $.fn.bootstrapWizard.defaults = {
 	onPrevious:       null,
 	onLast:           null,
 	onFirst:          null,
-    onBack:           null,
+  onBack:           null,
 	onTabChange:      null, 
 	onTabClick:       null,
 	onTabShow:        null
