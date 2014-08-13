@@ -76,6 +76,11 @@ Options
 			<td>'.wizard li.last'</td>
 			<td>last element selector</td>
 		</tr>	
+		<tr>
+			<td>backSelector</td>
+			<td>'.wizard li.back'</td>
+			<td>back element selector</td>
+		</tr>	
 	</tbody>	
 </table>
 
@@ -112,6 +117,10 @@ Events
 		<tr>
 			<td>onLast</td>
 			<td>Fired when last button is clicked (return false to disable moving to the last step)</td>
+		</tr>
+		<tr>
+			<td>onBack</td>
+			<td>Fired when back button is clicked (return false to disable moving backwards in navigation history)</td>
 		</tr>
 		<tr>
 			<td>onTabChange</td>
@@ -160,8 +169,13 @@ Methods
 			<td>Jumps to the last tab</td>
 		</tr>
 		<tr>
+			<td>back</td>
+			<td></td>
+			<td>Moves back in navigation history by jumping to the former tab</td>
+		</tr>
+		<tr>
 			<td>show</td>
-			<td>zero based index</td>
+			<td>zero based index or tab target id</td>
 			<td>Jumps to the specified tab</td>
 		</tr>
 		<tr>
