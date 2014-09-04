@@ -43,6 +43,7 @@ var bootstrapWizardCreate = function(element, options) {
 		$($settings.lastSelector, element).toggleClass('hidden', (obj.currentIndex() >= obj.navigationLength() && $($settings.finishSelector, element).length > 0));
 		$($settings.finishSelector, element).toggleClass('hidden', (obj.currentIndex() < obj.navigationLength()));
 		$($settings.backSelector, element).toggleClass('disabled', (historyStack.length == 0));
+		$($settings.backSelector, element).toggleClass('hidden', (obj.currentIndex() >= obj.navigationLength() && $($settings.finishSelector, element).length > 0));
 
 		// We are unbinding and rebinding to ensure single firing and no double-click errors
 		obj.rebindClick($($settings.nextSelector, element), obj.next);
