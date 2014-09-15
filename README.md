@@ -80,7 +80,12 @@ Options
 			<td>backSelector</td>
 			<td>'.wizard li.back'</td>
 			<td>back element selector</td>
-		</tr>	
+		</tr>
+		<tr>
+			<td>finishSelector</td>
+			<td>'.wizard li.finish'</td>
+			<td>finish element selector</td>
+		</tr>
 	</tbody>	
 </table>
 
@@ -121,6 +126,10 @@ Events
 		<tr>
 			<td>onBack</td>
 			<td>Fired when back button is clicked (return false to disable moving backwards in navigation history)</td>
+		</tr>
+		<tr>
+			<td>onFinish</td>
+			<td>Fired when finish button is clicked (return value is irrelevant)</td>
 		</tr>
 		<tr>
 			<td>onTabChange</td>
@@ -172,6 +181,11 @@ Methods
 			<td>back</td>
 			<td></td>
 			<td>Moves back in navigation history by jumping to the former tab</td>
+		</tr>
+		<tr>
+			<td>finish</td>
+			<td></td>
+			<td>"Finishes" the wizard by calling onFinish callback</td>
 		</tr>
 		<tr>
 			<td>show</td>

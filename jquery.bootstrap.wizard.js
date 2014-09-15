@@ -39,13 +39,18 @@ var bootstrapWizardCreate = function(element, options) {
 		// See if we're currently in the first/last then disable the previous and last buttons
 		$($settings.previousSelector, element).toggleClass('disabled', (obj.firstIndex() >= obj.currentIndex()));
 		$($settings.nextSelector, element).toggleClass('disabled', (obj.currentIndex() >= obj.navigationLength()));
+		$($settings.nextSelector, element).toggleClass('hidden', (obj.currentIndex() >= obj.navigationLength() && $($settings.finishSelector, element).length > 0));
+		$($settings.lastSelector, element).toggleClass('hidden', (obj.currentIndex() >= obj.navigationLength() && $($settings.finishSelector, element).length > 0));
+		$($settings.finishSelector, element).toggleClass('hidden', (obj.currentIndex() < obj.navigationLength()));
 		$($settings.backSelector, element).toggleClass('disabled', (historyStack.length == 0));
+		$($settings.backSelector, element).toggleClass('hidden', (obj.currentIndex() >= obj.navigationLength() && $($settings.finishSelector, element).length > 0));
 
 		// We are unbinding and rebinding to ensure single firing and no double-click errors
 		obj.rebindClick($($settings.nextSelector, element), obj.next);
 		obj.rebindClick($($settings.previousSelector, element), obj.previous);
 		obj.rebindClick($($settings.lastSelector, element), obj.last);
 		obj.rebindClick($($settings.firstSelector, element), obj.first);
+		obj.rebindClick($($settings.finishSelector, element), obj.finish);
 		obj.rebindClick($($settings.backSelector, element), obj.back);
 
 		if($settings.onTabShow && typeof $settings.onTabShow === 'function' && $settings.onTabShow($activeTab, $navigation, obj.currentIndex())===false){
@@ -120,6 +125,12 @@ var bootstrapWizardCreate = function(element, options) {
 
 		historyStack.push(obj.currentIndex());
 		$navigation.find(baseItemSelector + ':eq(' + obj.navigationLength() + ') a').tab('show');
+	};
+
+	this.finish = function (e) {
+	  if ($settings.onFinish && typeof $settings.onFinish === 'function') {
+	    $settings.onFinish($activeTab, $navigation, obj.lastIndex());
+	  }
 	};
 
 	this.back = function () {
@@ -302,6 +313,7 @@ $.fn.bootstrapWizard.defaults = {
 	previousSelector: '.wizard li.previous',
 	firstSelector:    '.wizard li.first',
 	lastSelector:     '.wizard li.last',
+  finishSelector:   '.wizard li.finish',
 	backSelector:     '.wizard li.back',
 	onShow:           null,
 	onInit:           null,
@@ -309,6 +321,7 @@ $.fn.bootstrapWizard.defaults = {
 	onPrevious:       null,
 	onLast:           null,
 	onFirst:          null,
+  onFinish:         null,
   onBack:           null,
 	onTabChange:      null, 
 	onTabClick:       null,
