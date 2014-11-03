@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "jquery": ">=1.9.1",
-    "bootstrap": ">=2.3.0"
+    "bootstrap": ">=3.3.0"
   },
   "homepage": "https://github.com/VinceG/twitter-bootstrap-wizard",
   "authors": [

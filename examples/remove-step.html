@@ -9,12 +9,11 @@
   <body>
     <div class='container'>
 		
-		<div class="span12">
 			<section id="wizard">
 			  <div class="page-header">
 	            <h1>Basic Wizard</h1>
 	          </div>
-	
+
 				<div id="rootwizard">
 					<ul>
 					  	<li><a href="#tab1" data-toggle="tab">First</a></li>
@@ -53,10 +52,10 @@
 							<li class="next last" style="display:none;"><a href="#">Last</a></li>
 						  	<li class="next"><a href="#">Next</a></li>
 						</ul>
-					</div>	
+					</div>
 				</div>
 
-				<div class="span12">
+				<div class="col-xs-12">
 					<input type='text' name='stepid' id='stepid' value='1' size='2' style='width:20px;' />
 					<input type='button' class='btn' id='disable-step' value='Disable' />
 					<input type='button' class='btn' id='enable-step' value='Enable' />
@@ -64,7 +63,7 @@
 					<input type='button' class='btn' id='hide-step' value='Hide' />
 					<input type='button' class='btn' id='remove-step' value='Remove' />
 				</div>
-				
+
 <h3>HTML</h3>
 <pre class="prettyprint linenums">
 &lt;div id="rootwizard">
@@ -105,9 +104,9 @@
 			&lt;li class="next last" style="display:none;">&lt;a href="#">Last&lt;/a>&lt;/li>
 		  	&lt;li class="next">&lt;a href="#">Next&lt;/a>&lt;/li>
 		&lt;/ul>
-	&lt;/div>	
+	&lt;/div>
 &lt;/div>
-&lt;div class="span12">
+&lt;div class="col-xs-12">
 	&lt;input type='text' name='stepid' id='stepid' value='1' size='2' style='width:20px;' />
 	&lt;input type='button' class='btn' id='disable-step' value='Disable' />
 	&lt;input type='button' class='btn' id='enable-step' value='Enable' />
@@ -147,10 +146,9 @@ $(document).ready(function() {
 		$('#rootwizard').bootstrapWizard('hide', $('#stepid').val());
 	});
 });
-</pre>	
-				
+</pre>
+
 			</section>
- 		</div>
 	</div>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -158,7 +156,7 @@ $(document).ready(function() {
 	<script src="../prettify.js"></script>
 	<script>
 	$(document).ready(function() {
-	  	$('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'});	
+	  	$('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'});
 		window.prettyPrint && prettyPrint();
 
 		// Disable step
@@ -186,7 +184,7 @@ $(document).ready(function() {
 			$('#rootwizard').bootstrapWizard('hide', $('#stepid').val());
 		});
 
-	});	
+	});
 	</script>
   </body>
 </html>

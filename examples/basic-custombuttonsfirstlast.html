@@ -9,12 +9,11 @@
   <body>
     <div class='container'>
 		
-		<div class="span12">
 			<section id="wizard">
 			  <div class="page-header">
 	            <h1>Wizard With Custom Next/Previous Buttons & First and Last buttons</h1>
 	          </div>
-	
+
 				<div id="rootwizard">
 					<div class="navbar">
 					  <div class="navbar-inner">
@@ -61,9 +60,9 @@
 							<input type='button' class='btn button-first' name='first' value='First' />
 							<input type='button' class='btn button-previous' name='previous' value='Previous' />
 						</div>
-					</div>	
+					</div>
 				</div>
-				
+
 <h3>HTML</h3>
 <pre class="prettyprint linenums">
 &lt;div id="rootwizard">
@@ -112,7 +111,7 @@
 			&lt;input type='button' class='btn button-first' name='first' value='First' />
 			&lt;input type='button' class='btn button-previous' name='previous' value='Previous' />
 		&lt;/div>
-	&lt;/div>	
+	&lt;/div>
 &lt;/div>
 </pre>
 
@@ -121,10 +120,9 @@
 $(document).ready(function() {
   	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
 });
-</pre>	
-				
+</pre>
+
 			</section>
- 		</div>
 	</div>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -132,9 +130,9 @@ $(document).ready(function() {
 	<script src="../prettify.js"></script>
 	<script>
 	$(document).ready(function() {
-	  	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});	
+	  	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
 		window.prettyPrint && prettyPrint()
-	});	
+	});
 	</script>
   </body>
 </html>

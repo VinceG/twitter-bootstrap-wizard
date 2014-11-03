@@ -8,13 +8,12 @@
   </head>
   <body>
     <div class='container'>
-		
-		<div class="span12">
+
 			<section id="wizard">
 			  <div class="page-header">
 	            <h1>Wizard With Custom Tabs Example</h1>
 	          </div>
-	
+
 				<div id="rootwizard">
 					<div class="navbar">
 					  <div class="navbar-inner">
@@ -59,9 +58,9 @@
 						<div style="float:left">
 							<input type='button' class='btn button-previous' name='previous' value='Previous' />
 						</div>
-					</div>	
+					</div>
 				</div>
-				
+
 <h3>HTML</h3>
 <pre class="prettyprint linenums">
 &lt;div id="rootwizard">
@@ -108,7 +107,7 @@
 		&lt;div style="float:left">
 			&lt;input type='button' class='btn button-previous' name='previous' value='Previous' />
 		&lt;/div>
-	&lt;/div>	
+	&lt;/div>
 &lt;/div>
 </pre>
 
@@ -117,10 +116,9 @@
 $(document).ready(function() {
   	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous'});
 });
-</pre>	
-				
+</pre>
+
 			</section>
- 		</div>
 	</div>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -128,9 +126,9 @@ $(document).ready(function() {
 	<script src="../prettify.js"></script>
 	<script>
 	$(document).ready(function() {
-	  	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous'});	
+	  	$('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous'});
 		window.prettyPrint && prettyPrint()
-	});	
+	});
 	</script>
   </body>
 </html>
