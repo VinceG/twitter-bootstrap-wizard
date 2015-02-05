@@ -8,13 +8,12 @@
   </head>
   <body>
     <div class='container'>
-		
-		<div class="span12">
+
 			<section id="wizard">
 			  <div class="page-header">
 	            <h1>Wizard With Form Validation</h1>
 	          </div>
-	
+
 				<div id="rootwizard">
 					<div class="navbar">
 					  <div class="navbar-inner">
@@ -31,9 +30,9 @@
 					 </div>
 					  </div>
 					</div>
-					<div id="bar" class="progress progress-striped active">
-					  <div class="bar"></div>
-					</div>
+					<div id="bar" class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                    </div>
 					<div class="tab-content">
 					    <div class="tab-pane" id="tab1">
 					      1
@@ -64,9 +63,9 @@
 							<li class="next last" style="display:none;"><a href="#">Last</a></li>
 						  	<li class="next"><a href="#">Next</a></li>
 						</ul>
-					</div>	
+					</div>
 				</div>
-				
+
 <h3>HTML</h3>
 <pre class="prettyprint linenums">
 &lt;div id="rootwizard">
@@ -85,9 +84,9 @@
 	 &lt;/div>
 	  &lt;/div>
 	&lt;/div>
-	&lt;div id="bar" class="progress progress-striped active">
-	  &lt;div class="bar">&lt;/div>
-	&lt;/div>
+	&lt;div id="bar" class="progress">
+      &lt;div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">&lt;/div>
+    &lt;/div>
 	&lt;div class="tab-content">
 	    &lt;div class="tab-pane" id="tab1">
 	      1
@@ -118,7 +117,7 @@
 			&lt;li class="next last" style="display:none;">&lt;a href="#">Last&lt;/a>&lt;/li>
 		  	&lt;li class="next">&lt;a href="#">Next&lt;/a>&lt;/li>
 		&lt;/ul>
-	&lt;/div>	
+	&lt;/div>
 &lt;/div>
 </pre>
 
@@ -134,21 +133,20 @@ $(document).ready(function() {
 					return false;
 				}
 			}
-			
+
 			// Set the name for the next tab
 			$('#tab3').html('Hello, ' + $('#name').val());
-			
+
 		}, onTabShow: function(tab, navigation, index) {
 			var $total = navigation.find('li').length;
 			var $current = index+1;
 			var $percent = ($current/$total) * 100;
-			$('#rootwizard').find('.bar').css({width:$percent+'%'});
+			$('#rootwizard .progress-bar').css({width:$percent+'%'});
 		}});
 });
-</pre>	
-				
+</pre>
+
 			</section>
- 		</div>
 	</div>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -165,18 +163,18 @@ $(document).ready(function() {
 						return false;
 					}
 				}
-				
+
 				// Set the name for the next tab
 				$('#tab3').html('Hello, ' + $('#name').val());
-				
+
 			}, onTabShow: function(tab, navigation, index) {
 				var $total = navigation.find('li').length;
 				var $current = index+1;
 				var $percent = ($current/$total) * 100;
-				$('#rootwizard').find('.bar').css({width:$percent+'%'});
-			}});	
+				$('#rootwizard .progress-bar').css({width:$percent+'%'});
+			}});
 		window.prettyPrint && prettyPrint()
-	});	
+	});
 	</script>
   </body>
 </html>

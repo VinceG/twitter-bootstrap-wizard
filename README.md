@@ -14,7 +14,7 @@ Requirements
 -------------
 
 * Requires jQuery v1.3.2 or later
-* Bootstrap 2.2.x, 2.3.x, 3.0
+* Bootstrap 3.x
 
 Code Examples
 -------------
@@ -51,7 +51,7 @@ Options
 			<th>Key</th>
 			<th>Default</th>
 			<th>Description</th>
-		</tr>	
+		</tr>
 	</thead>
 	<tbody>
 		<tr>
@@ -78,7 +78,7 @@ Options
 			<td>lastSelector</td>
 			<td>'.wizard li.last'</td>
 			<td>last element selector</td>
-		</tr>	
+		</tr>
 		<tr>
 			<td>backSelector</td>
 			<td>'.wizard li.back'</td>
@@ -89,7 +89,7 @@ Options
 			<td>'.wizard li.finish'</td>
 			<td>finish element selector</td>
 		</tr>
-	</tbody>	
+	</tbody>
 </table>
 
 Events
@@ -145,8 +145,8 @@ Events
 		<tr>
 			<td>onTabShow</td>
 			<td>Fired when a tab content is shown (return false to disable showing that tab content)</td>
-		</tr>	
-	</tbody>	
+		</tr>
+	</tbody>
 </table>
 
 Methods
@@ -157,7 +157,7 @@ Methods
 			<th>Key</th>
 			<th>Parameters</th>
 			<th>Description</th>
-		</tr>	
+		</tr>
 	</thead>
 	<tbody>
 		<tr>
@@ -230,7 +230,7 @@ Methods
 			<td>zero based index, optinal bool remove tab-pane element or not false by default</td>
 			<td>Removes the li element from the DOM if second argument is true will also remove the tab-pane element</td>
 		</tr>
-	</tbody>	
+	</tbody>
 </table>
 
 <p>&copy; <a href='http://vadimg.com' target="_blank">Vadim Vincent Gabriel</a> <a href='https://twitter.com/gabrielva' target='_blank'>Follow @gabrielva</a> 2012</p>
@@ -258,5 +258,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
