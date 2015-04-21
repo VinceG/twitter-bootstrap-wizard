@@ -184,8 +184,8 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 	this.show = function(index) {
 	  var tabToShow = isNaN(index) ? 
-      element.find(baseItemSelector + ' a[href=#' + index + ']') : 
-      element.find(baseItemSelector + ':eq(' + index + ') a');
+      $navigation.find(baseItemSelector + ' a[href=#' + index + ']') : 
+      $navigation.find(baseItemSelector + ':eq(' + index + ') a');
 	  if (tabToShow.length > 0) {
 	    historyStack.push(obj.currentIndex());
 	    tabToShow.tab('show');
@@ -252,7 +252,7 @@ var bootstrapWizardCreate = function(element, options) {
 		$('a[data-toggle="tab"]', $navigation).off('shown shown.bs.tab', innerTabShown);
 		
 		// reset elements based on current state of the DOM
-		$navigation = element.find('ul:first', element);
+		$navigation = $settings.navigation || element.find('ul:first', element);
 		$activeTab = $navigation.find(baseItemSelector + '.active', element);
 		
 		// re-add handlers
@@ -262,7 +262,7 @@ var bootstrapWizardCreate = function(element, options) {
 		obj.fixNavigationButtons();
 	};
 
-	$navigation = element.find('ul:first', element);
+	$navigation = $settings.navigation || element.find('ul:first', element);
 	$activeTab = $navigation.find(baseItemSelector + '.active', element);
 
 	if(!$navigation.hasClass($settings.tabClass)) {
@@ -325,7 +325,8 @@ $.fn.bootstrapWizard.defaults = {
   onBack:           null,
 	onTabChange:      null, 
 	onTabClick:       null,
-	onTabShow:        null
+	onTabShow:        null,
+	navigation:       null
 };
 
 })(jQuery);
