@@ -9,13 +9,12 @@
   <body>
     <div class='container'>
 		
-		<div class="span12">
 			<section id="wizard">
 			  <div class="page-header">
 	            <h1>Wizard With Finish Button On last tab</h1>
 	            <p>Auto-hide of Finish, Next, and Last buttons only when used with Bootstrap 3</p>
 	          </div>
-	
+
 				<div id="rootwizard">
 					<div class="navbar">
 					  <div class="navbar-inner">
@@ -61,9 +60,9 @@
 						  	<li class="next"><a href="javascript:;">Next</a></li>
 							<li class="finish"><a href="javascript:;">Finish</a></li>
 						</ul>
-					</div>	
+					</div>
 				</div>
-				
+
 <h3>HTML</h3>
 <pre class="prettyprint linenums">
 &lt;div id="rootwizard">
@@ -111,7 +110,7 @@
 		  	&lt;li class="next">&lt;a href="javascript:;">Next&lt;/a>&lt;/li>
 			&lt;li class="finish">&lt;a href="javascript:;">Finish&lt;/a>&lt;/li>
 		&lt;/ul>
-	&lt;/div>	
+	&lt;/div>
 &lt;/div>
 </pre>
 
@@ -129,10 +128,9 @@ $(document).ready(function() {
 		$('#rootwizard').find("a[href*='tab1']").trigger('click');
 	});
 });
-</pre>	
-				
+</pre>
+
 			</section>
- 		</div>
 	</div>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -144,14 +142,14 @@ $(document).ready(function() {
 			var $total = navigation.find('li').length;
 			var $current = index+1;
 			var $percent = ($current/$total) * 100;
-			$('#rootwizard').find('.bar').css({width:$percent+'%'});			
+			$('#rootwizard').find('.bar').css({width:$percent+'%'});
 		}});
 		$('#rootwizard .finish').click(function() {
 			alert('Finished!, Starting over!');
 			$('#rootwizard').find("a[href*='tab1']").trigger('click');
-		});	
+		});
 		window.prettyPrint && prettyPrint()
-	});	
+	});
 	</script>
   </body>
 </html>
