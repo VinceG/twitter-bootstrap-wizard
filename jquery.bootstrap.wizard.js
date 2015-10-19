@@ -190,6 +190,7 @@ var bootstrapWizardCreate = function(element, options) {
       element.find(baseItemSelector + ':eq(' + index + ') a');
 	  if (tabToShow.length > 0) {
 	    historyStack.push(obj.currentIndex());
+	    $activeTab = tabToShow.parent();
 	    tabToShow.tab('show');
 	  }
 	};
