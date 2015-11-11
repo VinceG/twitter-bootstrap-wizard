@@ -162,10 +162,10 @@ var bootstrapWizardCreate = function(element, options) {
 		return $navigation.find(baseItemSelector).index(e);
 	};
 	this.nextIndex = function() {
-		return $navigation.find(baseItemSelector).index($activeTab) + 1;
+		return $navigation.find(baseItemSelector + '.active').index() + 1;
 	};
 	this.previousIndex = function() {
-		return $navigation.find(baseItemSelector).index($activeTab) - 1;
+		return $navigation.find(baseItemSelector + '.active').index() - 1;
 	};
 	this.navigationLength = function() {
 		return $navigation.find(baseItemSelector).length - 1;
