@@ -69,7 +69,7 @@ var bootstrapWizardCreate = function(element, options) {
 		}
 
 		var formerIndex = obj.currentIndex();
-		$index = obj.nextIndex();
+		var $index = obj.nextIndex();
 
 	  // Did we click the last button
 		if($index > obj.navigationLength()) {
@@ -90,7 +90,7 @@ var bootstrapWizardCreate = function(element, options) {
 		}
 
 		var formerIndex = obj.currentIndex();
-		$index = obj.previousIndex();
+		var $index = obj.previousIndex();
 
 		if($index < 0) {
 		} else {
@@ -229,7 +229,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 	
 	var innerTabShown = function (e) {  // use shown instead of show to help prevent double firing
-		$element = $(e.target).parent();
+		var $element = $(e.target).parent();
 		var nextTab = $navigation.find(baseItemSelector).index($element);
 
 		// If it's disabled then do not change
