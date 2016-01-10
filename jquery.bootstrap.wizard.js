@@ -75,7 +75,7 @@ var bootstrapWizardCreate = function(element, options) {
 		if($index > obj.navigationLength()) {
 		} else {
 		  historyStack.push(formerIndex);
-		  $navigation.find(baseItemSelector + ':visible:eq(' + $index + ') a').tab('show');
+		  $navigation.find(baseItemSelector + ':eq(' + $index + ') a').tab('show');
 		}
 	};
 
@@ -95,7 +95,7 @@ var bootstrapWizardCreate = function(element, options) {
 		if($index < 0) {
 		} else {
 		  historyStack.push(formerIndex);
-		  $navigation.find(baseItemSelector + ':visible:eq(' + $index + ') a').tab('show');
+		  $navigation.find(baseItemSelector + ':eq(' + $index + ') a').tab('show');
 		}
 	};
 
