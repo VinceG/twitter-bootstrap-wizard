@@ -61,6 +61,11 @@ Options
 	</thead>
 	<tbody>
 		<tr>
+			<td>withVisible</td>
+			<td>true</td>
+			<td>Find only visible li step elements. Set to `false` if your steps display is hidden.</td>
+		</tr>
+		<tr>
 			<td>tabClass</td>
 			<td>'nav nav-pills'</td>
 			<td>ul navigation class</td>
