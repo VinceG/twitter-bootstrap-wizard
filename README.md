@@ -19,7 +19,7 @@ Requirements
 Install
 -------------
 ```
-bower install twitter-bootstrap-wizard --save 
+bower install twitter-bootstrap-wizard#1.3 --save 
 ```
 
 Code Examples
