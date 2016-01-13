@@ -75,7 +75,7 @@ var bootstrapWizardCreate = function(element, options) {
 		if($index > obj.navigationLength()) {
 		} else {
 		  historyStack.push(formerIndex);
-		  $navigation.find(baseItemSelector + ':visible:eq(' + $index + ') a').tab('show');
+		  $navigation.find(baseItemSelector + ':' + ($settings.withVisible ? ':visible' : '') + ':eq(' + $index + ') a').tab('show');
 		}
 	};
 
@@ -95,7 +95,7 @@ var bootstrapWizardCreate = function(element, options) {
 		if($index < 0) {
 		} else {
 		  historyStack.push(formerIndex);
-		  $navigation.find(baseItemSelector + ':visible:eq(' + $index + ') a').tab('show');
+		  $navigation.find(baseItemSelector + ':' + ($settings.withVisible ? ':visible' : '') + ':eq(' + $index + ') a').tab('show');
 		}
 	};
 
@@ -308,12 +308,13 @@ $.fn.bootstrapWizard = function(options) {
 
 // expose options
 $.fn.bootstrapWizard.defaults = {
+	withVisible:      true,
 	tabClass:         'nav nav-pills',
 	nextSelector:     '.wizard li.next',
 	previousSelector: '.wizard li.previous',
 	firstSelector:    '.wizard li.first',
 	lastSelector:     '.wizard li.last',
-  finishSelector:   '.wizard li.finish',
+  	finishSelector:   '.wizard li.finish',
 	backSelector:     '.wizard li.back',
 	onShow:           null,
 	onInit:           null,
@@ -321,8 +322,8 @@ $.fn.bootstrapWizard.defaults = {
 	onPrevious:       null,
 	onLast:           null,
 	onFirst:          null,
-  onFinish:         null,
-  onBack:           null,
+  	onFinish:         null,
+  	onBack:           null,
 	onTabChange:      null,
 	onTabClick:       null,
 	onTabShow:        null
