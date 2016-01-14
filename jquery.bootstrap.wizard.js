@@ -1,7 +1,7 @@
 /*!
  * jQuery twitter bootstrap wizard plugin
  * Examples and documentation at: http://github.com/VinceG/twitter-bootstrap-wizard
- * version 1.0
+ * version 1.3.1
  * Requires jQuery v1.3.2 or later
  * Supports Bootstrap 2.2.x, 2.3.x, 3.0
  * Dual licensed under the MIT and GPL licenses:
@@ -75,7 +75,7 @@ var bootstrapWizardCreate = function(element, options) {
 		if($index > obj.navigationLength()) {
 		} else {
 		  historyStack.push(formerIndex);
-		  $navigation.find(baseItemSelector + ':' + ($settings.withVisible ? ':visible' : '') + ':eq(' + $index + ') a').tab('show');
+		  $navigation.find(baseItemSelector + ':' + ($settings.withVisible ? 'visible' : '') + ':eq(' + $index + ') a').tab('show');
 		}
 	};
 
@@ -95,7 +95,7 @@ var bootstrapWizardCreate = function(element, options) {
 		if($index < 0) {
 		} else {
 		  historyStack.push(formerIndex);
-		  $navigation.find(baseItemSelector + ':' + ($settings.withVisible ? ':visible' : '') + ':eq(' + $index + ') a').tab('show');
+		  $navigation.find(baseItemSelector + ':' + ($settings.withVisible ? 'visible' : '') + ':eq(' + $index + ') a').tab('show');
 		}
 	};
 
