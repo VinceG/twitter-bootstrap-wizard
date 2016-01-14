@@ -148,7 +148,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.currentIndex = function() {
-		return $navigation.find(baseItemSelector).index($activeTab);
+		return $navigation.find(baseItemSelector+':visible').index($activeTab);
 	};
 
 	this.firstIndex = function() {
@@ -162,10 +162,10 @@ var bootstrapWizardCreate = function(element, options) {
 		return $navigation.find(baseItemSelector).index(e);
 	};
 	this.nextIndex = function() {
-		return $navigation.find(baseItemSelector).index($activeTab) + 1;
+		return $navigation.find(baseItemSelector+':visible').index($activeTab) + 1;
 	};
 	this.previousIndex = function() {
-		return $navigation.find(baseItemSelector).index($activeTab) - 1;
+		return $navigation.find(baseItemSelector+':visible').index($activeTab) - 1;
 	};
 	this.navigationLength = function() {
 		return $navigation.find(baseItemSelector).length - 1;
