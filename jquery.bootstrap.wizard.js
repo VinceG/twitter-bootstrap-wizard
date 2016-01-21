@@ -158,15 +158,29 @@ var bootstrapWizardCreate = function(element, options) {
 	this.lastIndex = function() {
 		return obj.navigationLength();
 	};
+	
 	this.getIndex = function(e) {
 		return $navigation.find(baseItemSelector).index(e);
 	};
+	
 	this.nextIndex = function() {
-		return $navigation.find(baseItemSelector).index($activeTab) + 1;
+		var nextIndexCandidate=this.currentIndex();
+		var nextTabCandidate=null;
+		do {
+			nextIndexCandidate++;
+			nextTabCandidate = $navigation.find(baseItemSelector + ":eq(" + nextIndexCandidate + ")");
+		} while ((nextTabCandidate)&&(nextTabCandidate.hasClass("disabled")));
+		return nextIndexCandidate;
 	};
 	this.previousIndex = function() {
-		return $navigation.find(baseItemSelector).index($activeTab) - 1;
-	};
+		var prevIndexCandidate=this.currentIndex();
+		var prevTabCandidate=null;
+		do {
+			prevIndexCandidate--;
+			prevTabCandidate = $navigation.find(baseItemSelector + ":eq(" + prevIndexCandidate + ")");
+		} while ((prevTabCandidate)&&(prevTabCandidate.hasClass("disabled")));
+		return prevIndexCandidate;
+	};	
 	this.navigationLength = function() {
 		return $navigation.find(baseItemSelector).length - 1;
 	};
