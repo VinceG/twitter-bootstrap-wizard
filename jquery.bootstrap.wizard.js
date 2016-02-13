@@ -168,7 +168,7 @@ var bootstrapWizardCreate = function(element, options) {
 		return $navigation.find(baseItemSelector+':visible').index($activeTab) - 1;
 	};
 	this.navigationLength = function() {
-		return $navigation.find(baseItemSelector).length - 1;
+		return $navigation.find(baseItemSelector+':visible').length - 1;
 	};
 	this.activeTab = function() {
 		return $activeTab;
