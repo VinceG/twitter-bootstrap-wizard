@@ -184,7 +184,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 	this.show = function(index) {
 	  var tabToShow = isNaN(index) ?
-      element.find(baseItemSelector + ' a[href=#' + index + ']') :
+      element.find(baseItemSelector + ' a[href="#' + index + '"]') :
       element.find(baseItemSelector + ':eq(' + index + ') a');
 	  if (tabToShow.length > 0) {
 	    historyStack.push(obj.currentIndex());
