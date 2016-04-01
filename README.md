@@ -6,7 +6,7 @@ This Twitter Bootstrap plugin builds a wizard using a formatted tabbable structu
 ##### Note
  We will not longer be updating the bower version of bootstrap wizard or any other package manager. See <a href="https://github.com/VinceG/twitter-bootstrap-wizard/issues/81#issuecomment-42909528">#81</a> for the reason why. Please use 'master' branch instead.
 
-<a href="http://vadimg.com/twitter-bootstrap-wizard-example/" target="_blank">Website & Demo</a>
+<a href="http://vinceg.github.io/twitter-bootstrap-wizard" target="_blank">Website & Demo</a>
 
 <a href='https://twitter.com/gabrielva' target='_blank'>Follow @gabrielva</a>
 
