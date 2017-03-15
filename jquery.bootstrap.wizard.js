@@ -109,6 +109,7 @@ var bootstrapWizardCreate = function(element, options) {
 			return false;
 		}
 
+        
 		historyStack.push(obj.currentIndex());
 		$navigation.find(baseItemSelector + ':eq(0) a').tab('show');
 	};
@@ -148,7 +149,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.currentIndex = function() {
-		return $navigation.find(baseItemSelector).index($activeTab);
+		return $navigation.find(baseItemSelector + ($settings.withVisible ? ':visible' : '')).index($activeTab);
 	};
 
 	this.firstIndex = function() {
@@ -160,7 +161,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 	
 	this.getIndex = function(e) {
-		return $navigation.find(baseItemSelector).index(e);
+		return $navigation.find(baseItemSelector + ($settings.withVisible ? ':visible' : '')).index(e);
 	};
 	
 	this.nextIndex = function() {
@@ -168,7 +169,7 @@ var bootstrapWizardCreate = function(element, options) {
 		var nextTabCandidate=null;
 		do {
 			nextIndexCandidate++;
-			nextTabCandidate = $navigation.find(baseItemSelector + ":eq(" + nextIndexCandidate + ")");
+			nextTabCandidate = $navigation.find(baseItemSelector + ($settings.withVisible ? ':visible' : '') + ":eq(" + nextIndexCandidate + ")");
 		} while ((nextTabCandidate)&&(nextTabCandidate.hasClass("disabled")));
 		return nextIndexCandidate;
 	};
@@ -177,12 +178,12 @@ var bootstrapWizardCreate = function(element, options) {
 		var prevTabCandidate=null;
 		do {
 			prevIndexCandidate--;
-			prevTabCandidate = $navigation.find(baseItemSelector + ":eq(" + prevIndexCandidate + ")");
+			prevTabCandidate = $navigation.find(baseItemSelector + ($settings.withVisible ? ':visible' : '') + ":eq(" + prevIndexCandidate + ")");
 		} while ((prevTabCandidate)&&(prevTabCandidate.hasClass("disabled")));
 		return prevIndexCandidate;
 	};	
 	this.navigationLength = function() {
-		return $navigation.find(baseItemSelector).length - 1;
+		return $navigation.find(baseItemSelector + ($settings.withVisible ? ':visible' : '')).length - 1;
 	};
 	this.activeTab = function() {
 		return $activeTab;
