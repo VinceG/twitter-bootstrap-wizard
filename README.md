@@ -1,3 +1,6 @@
+# This project is no longer maintained, nor will it receive any future updates. The project comes as is with no gurantees. Please consider other alternatives if this does not work for you.
+
+
 Twitter Bootstrap Wizard
 ============================
 
