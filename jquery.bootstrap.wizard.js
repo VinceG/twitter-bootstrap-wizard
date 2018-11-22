@@ -22,6 +22,14 @@ var bootstrapWizardCreate = function(element, options) {
 	var $settings = $.extend({}, $.fn.bootstrapWizard.defaults, options);
 	var $activeTab = null;
 	var $navigation = null;
+	
+	element.find('input').keypress(function (e) {
+		if (e.which == 13) {
+			element.bootstrapWizard('next');
+
+			return false;
+		}
+	});
 
 	this.rebindClick = function(selector, fn)
 	{
